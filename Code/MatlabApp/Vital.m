@@ -193,77 +193,35 @@ function InteractiveDashboard_Final
         if app.IsConnected, clear app.Device; end
         delete(gcf);
     end
-
-    % function img = createRangesImage()
-    %     fig_hidden = figure('Visible', 'off', 'Position', [0 0 2400 1500]); 
-    %     ax = axes(fig_hidden, 'Position', [0 0 1 1], 'Visible', 'off'); 
-    % 
-    %     text_lines = {
-    %         '{\bfNormal Resting Ranges}'; ' ';
-    %         '{\bfHeart Rate:} 60 - 100 BPM';
-    %         '{\bfSpO2:} 95% - 100%';
-    %         '{\bfRespiratory Rate:} 12 - 20 BreathsPM'; ' ';
-    %         '-------------------------------------------------'; ' ';
-    %         '{\bfHRV Ranges by Cognitive State (Typical)}'; ' ';
-    %         '{\bfRelaxed:} RMSSD > 50 ms  |  SDNN > 60 ms';
-    %         '{\bfFocused/Active:} RMSSD: 20-50 ms  |  SDNN: 30-60 ms';
-    %         '{\bfStressed/Fatigued:} RMSSD < 20 ms  |  SDNN < 30 ms';
-    %     };
-    % 
-    %     text(ax, 0.5, 0.5, text_lines, 'HorizontalAlignment', 'center', ...
-    %          'VerticalAlignment', 'middle', 'FontSize', 30, 'Interpreter', 'tex');
-    % 
-    %     frame = getframe(fig_hidden);
-    %     img = frame.cdata;
-    %     close(fig_hidden);
-    % end
     
     function img = createRangesImage()
-        % --- 1. Setup the Figure ---
-        % Use 'uifigure' to host modern UI components like uitable and uilabel
         fig_hidden = uifigure('Visible', 'off', 'Position', [0 0 2400 1500]);
-
-        % --- 2. Data for the Tables ---
-        % Data for the first table (Normal Resting Ranges)
         normalData = {
             'Heart Rate', '60 - 100 BPM';
             'SpO₂', '95% - 100%';
             'Resp. Rate', '12 - 20 BreathsPM'
             };
-
-        % Data for the second table (HRV Ranges)
         hrvData = {
             'Relaxed', '> 50', '> 60';
             'Focused / Active', '20 - 50', '30 - 60';
             'Stressed / Fatigued', '< 20', '< 30'
             };
-
-        % --- 3. Create and Position UI Components ---
-        % Title for the first table
         uilabel(fig_hidden, 'Text', 'Normal Resting Ranges', ...
             'Position', [50, 720, 1100, 100], ...
             'FontSize', 28, 'FontWeight', 'bold', 'HorizontalAlignment', 'center');
-
-        % Create the first table
         t1 = uitable(fig_hidden, 'Data', normalData, ...
             'ColumnName', {'Metric', 'Value'}, ...
             'RowName', [], ...
             'Position', [100, 560, 1000, 150], ...
             'FontSize', 24, 'ColumnWidth', {300, 'auto'});
-
-        % Title for the second table
         uilabel(fig_hidden, 'Text', 'HRV Ranges by Cognitive State', ...
             'Position', [50, 460, 1100, 100], ...
             'FontSize', 28, 'FontWeight', 'bold', 'HorizontalAlignment', 'center');
-
-        % Create the second table
         t2 = uitable(fig_hidden, 'Data', hrvData, ...
             'ColumnName', {'Cognitive State', 'RMSSD (ms)', 'SDNN (ms)'}, ...
             'RowName', [], ...
             'Position', [100, 200, 1000, 250], ...
             'FontSize', 24, 'ColumnWidth', {350, 'auto', 'auto'});
-
-        % --- 4. Capture the Figure as an Image ---
         frame = getframe(fig_hidden);
         img = frame.cdata;
         close(fig_hidden);
@@ -287,3 +245,4 @@ function InteractiveDashboard_Final
     end
 
 end
+
