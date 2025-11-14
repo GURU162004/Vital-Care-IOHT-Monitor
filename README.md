@@ -1,2 +1,2 @@
-# Vital-Care-IOHT-Monitor
-A portable, IoT-enabled health monitor (ESP32, MAX30102, MLX90614) for individuals. Measures HR, SpO2, and temperature for real-time tracking and remote diagnosis via an Iot app.
+# Vital-Care: An IoHT Multi-Parameter Health Monitoring System
+A portable, IoT-enabled health monitor designed for individuals, especially for senior citizens. This system non-invasively measures Heart Rate (HR), Blood Oxygen Saturation (SpO2), and Body Temperature in real-time. Data is processed on an ESP32-S3 and sent to a user-friendly IoT application for remote monitoring and early diagnosis.
