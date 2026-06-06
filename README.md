@@ -17,6 +17,7 @@ A production-ready C++ embedded implementation built on the Arduino core and ESP
 * **Edge Analytics Engine:** Leverages the microcontroller's processing cores to analyze peak-to-peak morphology and parse normal-to-normal (NN) beat intervals for real-time HRV data mining without cloud dependency.
 * **Telemetry Protocols:** Hosts a dual wireless communication engine capable of local data broadcast via JSON over WebSockets or structural notifications via custom BLE GATT services.
 
+
 ### 2. Hardware Enclosure Engineering (`/hardware_casing`)
 Contains precise dimensional 3D printing blueprints, structural CAD assemblies (`.step`/`.stl`), and production drawings generated inside Autodesk Fusion 360:
 * **Form Factor Optimization:** Combines all components (microcontroller, sensor boards, and OLED screen) into a compact $60\times40\text{ mm}$ ergonomic enclosure.
